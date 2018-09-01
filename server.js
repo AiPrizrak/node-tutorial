@@ -34,18 +34,24 @@ app.get('/', (req,res) => {
         welcomeMessage: 'Welcome to brand new server of a brand new node user',
         });
 });
+
+app.get('/about', (req, res) =>{
+    res.render('about.hbs', {
+        pageTitle: 'About Page',
+        });
+
+});
+app.get('/new-project', (req, res) => {
+    res.render('new-project.hbs', {
+        pageTitle: 'Here is your new project!'
+    });
+});
 app.use((req,res,next) => {
     // res.send('Hello Express!');
     res.render('maintaines.hbs', {
         pageTitle: 'Repair works',
         //welcomeMessage: 'Welcome to brand new server of a brand new node user',
         });
-});
-app.get('/about', (req, res) =>{
-    res.render('about.hbs', {
-        pageTitle: 'About Page',
-        });
-
 });
 app.get('/bad', (req,res) => {
     res.send({
